@@ -316,7 +316,7 @@ public:
 int main()
 {
 	olcEngine3D demo;
-	if (demo.ConstructConsole(256, 240, 4, 4))
+	if (demo.ConstructConsole(150, 150, 4, 4)) //Those are the exact numbers that works on my screen
 		demo.Start();
 	return 0;
 
