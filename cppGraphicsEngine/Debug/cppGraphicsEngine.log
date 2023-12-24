@@ -1,8 +1,8 @@
 ﻿  cppGraphicsEngine.cpp
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(166,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(166,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(165,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(165,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(164,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(164,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(303,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(303,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(302,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(302,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(301,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(301,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   cppGraphicsEngine.vcxproj -> D:\Projects\Cpp-3D-Graphics-Engine\Debug\cppGraphicsEngine.exe
