@@ -1,9 +1,19 @@
 ﻿  cppGraphicsEngine.cpp
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(597,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(597,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(597,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(597,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(597,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(597,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(336): warning C4715: 'olcEngine3D::Triangle_ClipAgainstPlane': not all control paths return a value
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(672,118): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(672,108): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(672,78): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(672,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(672,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(672,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(674,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(674,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(674,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(674,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(674,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(674,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(739,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(740,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(786,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(787,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Projects\Cpp-3D-Graphics-Engine\cppGraphicsEngine\cppGraphicsEngine.cpp(372): warning C4715: 'olcEngine3D::Triangle_ClipAgainstPlane': not all control paths return a value
   cppGraphicsEngine.vcxproj -> D:\Projects\Cpp-3D-Graphics-Engine\Debug\cppGraphicsEngine.exe
