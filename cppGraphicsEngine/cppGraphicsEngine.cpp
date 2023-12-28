@@ -502,36 +502,7 @@ public:
 		pDepthBuffer = new float[ScreenWidth() * ScreenHeight()];
 
 		// Load object file
-		//meshCube.LoadFromObjectFile("mountains.obj");
-
-		meshCube.tris = {
-
-			// SOUTH
-			{ 0.0f, 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f, 1.0f,},
-			{ 0.0f, 0.0f, 0.0f, 1.0f,    1.0f, 1.0f, 0.0f, 1.0f,    1.0f, 0.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		1.0f, 0.0f, 1.0f,		1.0f, 1.0f, 1.0f,},
-
-			// EAST           																			   
-			{ 1.0f, 0.0f, 0.0f, 1.0f,    1.0f, 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f, 1.0f,		0.0f, 1.0f, 1.0f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f, 1.0f,},
-			{ 1.0f, 0.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f, 1.0f,    1.0f, 0.0f, 1.0f, 1.0f,		0.0f, 1.0f, 1.0f,		1.0f, 0.0f, 1.0f,		1.0f, 1.0f, 1.0f,},
-
-			// NORTH           																			   
-			{ 1.0f, 0.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f, 1.0f,		0.0f, 1.0f, 1.0f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f, 1.0f,},
-			{ 1.0f, 0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f, 1.0f,		0.0f, 1.0f, 1.0f,		1.0f, 0.0f, 1.0f,		1.0f, 1.0f, 1.0f,},
-
-			// WEST            																			   
-			{ 0.0f, 0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f, 1.0f,},
-			{ 0.0f, 0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		1.0f, 0.0f, 1.0f,		1.0f, 1.0f, 1.0f,},
-
-			// TOP             																			   
-			{ 0.0f, 1.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f, 1.0f,		0.0f, 1.0f, 1.0f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f, 1.0f,},
-			{ 0.0f, 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		1.0f, 0.0f, 1.0f,		1.0f, 1.0f, 1.0f,},
-
-			// BOTTOM          																			  
-			{ 1.0f, 0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f, 1.0f,},
-			{ 1.0f, 0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 0.0f, 1.0f,    1.0f, 0.0f, 0.0f, 1.0f,		0.0f, 1.0f, 1.0f,		1.0f, 0.0f, 1.0f,		1.0f, 1.0f, 1.0f,},
-
-		};
-
+		meshCube.LoadFromObjectFile("mountains.obj");
 
 		sprTex1 = new olcSprite(L"Jario.spr");
 
@@ -579,7 +550,7 @@ public:
 		// Set up "World Tranmsform" though not updating theta 
 		// makes this a bit redundant
 		mat4x4 matRotZ, matRotX;
-		fTheta += 1.0f * fElapsedTime; // Uncomment to spin me right round baby right round
+		//fTheta += 1.0f * fElapsedTime; // Uncomment to spin me right round baby right round
 		matRotZ = Matrix_MakeRotationZ(fTheta * 0.5f);
 		matRotX = Matrix_MakeRotationX(fTheta);
 
@@ -727,15 +698,15 @@ public:
 		}
 
 		// Sort triangles from back to front
-		/*sort(vecTrianglesToRaster.begin(), vecTrianglesToRaster.end(), [](triangle &t1, triangle &t2)
+		sort(vecTrianglesToRaster.begin(), vecTrianglesToRaster.end(), [](triangle &t1, triangle &t2)
 		{
 			float z1 = (t1.p[0].z + t1.p[1].z + t1.p[2].z) / 3.0f;
 			float z2 = (t2.p[0].z + t2.p[1].z + t2.p[2].z) / 3.0f;
 			return z1 > z2;
-		});*/
+		});
 
 		// Clear Screen
-		Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_CYAN);
+		Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
 
 		// Clear Depth Buffer
 		for (int i = 0; i < ScreenWidth() * ScreenHeight(); i++)
@@ -795,8 +766,8 @@ public:
 					t.p[1].x, t.p[1].y, t.t[1].u, t.t[1].v, t.t[1].w,
 					t.p[2].x, t.p[2].y, t.t[2].u, t.t[2].v, t.t[2].w, sprTex1);
 
-				//FillTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, t.sym, t.col);
-				DrawTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_WHITE);
+				FillTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, t.sym, t.col);
+				//DrawTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_WHITE);
 			}
 		}
 
@@ -982,7 +953,7 @@ public:
 int main()
 {
 	olcEngine3D demo;
-	if (demo.ConstructConsole(200, 180, 3, 3))
+	if (demo.ConstructConsole(256, 240, 2, 2))
 		demo.Start();
 	return 0;
 }
