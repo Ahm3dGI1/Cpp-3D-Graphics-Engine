@@ -20,8 +20,7 @@ This 3D graphics engine is designed to render 3D models and textures in a consol
 ### Installation
 
 1. Clone or download this repository.
-2. Include `olcConsoleGameEngine.h` in your project.
-3. Compile and execute the application.
+2. Compile and execute the application.
 
 ## Usage
 
