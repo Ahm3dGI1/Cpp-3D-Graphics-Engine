@@ -31,18 +31,20 @@ struct triangle
 
 struct mesh
 {
-	vector<triangle> tris;
+	vector<triangle> tris;  // A vector of triangles that make up the mesh
 
+	// Function to load a mesh from an object file
 	bool LoadFromObjectFile(string sFilename, bool bHasTexture = false)
 	{
-		ifstream f(sFilename);
+		ifstream f(sFilename);  // Open the file
 		if (!f.is_open())
-			return false;
+			return false;  // If the file couldn't be opened, return false
 
-		// Local cache of verts
+		// Local cache of vertices and texture coordinates
 		vector<vec3d> verts;
 		vector<vec2d> texs;
 
+		// Read the file until the end
 		while (!f.eof())
 		{
 			char line[128];
@@ -53,44 +55,42 @@ struct mesh
 
 			char junk;
 
+			// If the line starts with 'v', it represents a vertex
 			if (line[0] == 'v')
 			{
+				// If the line starts with 'vt', it represents a texture coordinate
 				if (line[1] == 't')
 				{
 					vec2d v;
 					s >> junk >> junk >> v.u >> v.v;
-					// A little hack for the spyro texture
-					//v.u = 1.0f - v.u;
-					//v.v = 1.0f - v.v;
-					texs.push_back(v);
+					texs.push_back(v);  // Add the texture coordinate to the list
 				}
 				else
 				{
 					vec3d v;
 					s >> junk >> v.x >> v.y >> v.z;
-					verts.push_back(v);
+					verts.push_back(v);  // Add the vertex to the list
 				}
 			}
 
-			if (!bHasTexture)
+			// If the line starts with 'f', it represents a face
+			if (line[0] == 'f')
 			{
-				if (line[0] == 'f')
+				// If the object doesn't have a texture, the face is defined by three vertices
+				if (!bHasTexture)
 				{
 					int f[3];
 					s >> junk >> f[0] >> f[1] >> f[2];
 					tris.push_back({ verts[f[0] - 1], verts[f[1] - 1], verts[f[2] - 1] });
 				}
-			}
-			else
-			{
-				if (line[0] == 'f')
+				else  // If the object has a texture, the face is defined by vertices and texture coordinates
 				{
 					s >> junk;
 
 					string tokens[6];
 					int nTokenCount = -1;
 
-
+					// Split the line into tokens
 					while (!s.eof())
 					{
 						char c = s.get();
@@ -102,15 +102,13 @@ struct mesh
 
 					tokens[nTokenCount].pop_back();
 
-
+					// Add the face to the list of triangles
 					tris.push_back({ verts[stoi(tokens[0]) - 1], verts[stoi(tokens[2]) - 1], verts[stoi(tokens[4]) - 1],
 						texs[stoi(tokens[1]) - 1], texs[stoi(tokens[3]) - 1], texs[stoi(tokens[5]) - 1] });
-
 				}
-
 			}
 		}
-		return true;
+		return true;  // If the file was read successfully, return true
 	}
 };
 
@@ -129,7 +127,7 @@ public:
 
 
 private:
-	mesh meshCube;
+	mesh meshCube;	// test cube
 	mat4x4 matProj;	// Matrix that converts from view space to screen space
 	vec3d vCamera;	// Location of camera in world space
 	vec3d vLookDir;	// Direction vector along the direction camera points
@@ -138,6 +136,7 @@ private:
 
 	olcSprite* sprTex1;
 
+	// Essential Matrix manipulation methods
 	vec3d Matrix_MultiplyVector(mat4x4& m, vec3d& i)
 	{
 		vec3d v;
@@ -209,15 +208,20 @@ private:
 
 	mat4x4 Matrix_MakeProjection(float fFovDegrees, float fAspectRatio, float fNear, float fFar)
 	{
+		// Convert the field of view from degrees to radians
 		float fFovRad = 1.0f / tanf(fFovDegrees * 0.5f / 180.0f * 3.14159f);
+
 		mat4x4 matrix;
-		matrix.m[0][0] = fAspectRatio * fFovRad;
-		matrix.m[1][1] = fFovRad;
-		matrix.m[2][2] = fFar / (fFar - fNear);
-		matrix.m[3][2] = (-fFar * fNear) / (fFar - fNear);
-		matrix.m[2][3] = 1.0f;
-		matrix.m[3][3] = 0.0f;
-		return matrix;
+
+		// Set the elements of the projection matrix
+		matrix.m[0][0] = fAspectRatio * fFovRad;  // Scale the x coordinates
+		matrix.m[1][1] = fFovRad;  // Scale the y coordinates
+		matrix.m[2][2] = fFar / (fFar - fNear);  // Adjust the z coordinates for the near and far clipping planes
+		matrix.m[3][2] = (-fFar * fNear) / (fFar - fNear);  // Adjust the w coordinates for the near and far clipping planes
+		matrix.m[2][3] = 1.0f;  // Set the perspective division parameter
+		matrix.m[3][3] = 0.0f;  // Set the perspective division parameter
+
+		return matrix;  // Return the projection matrix
 	}
 
 	mat4x4 Matrix_MultiplyMatrix(mat4x4& m1, mat4x4& m2)
@@ -311,15 +315,31 @@ private:
 		return v;
 	}
 
+	// Function to find the intersection point of a line and a plane
 	vec3d Vector_IntersectPlane(vec3d& plane_p, vec3d& plane_n, vec3d& lineStart, vec3d& lineEnd, float& t)
 	{
+		// Normalize the plane normal vector
 		plane_n = Vector_Normalise(plane_n);
+
+		// Calculate the plane's distance from the origin
 		float plane_d = -Vector_DotProduct(plane_n, plane_p);
+
+		// Calculate the dot product of the line start point and the plane normal
 		float ad = Vector_DotProduct(lineStart, plane_n);
+
+		// Calculate the dot product of the line end point and the plane normal
 		float bd = Vector_DotProduct(lineEnd, plane_n);
+
+		// Calculate the intersection point's distance from the line start point, as a fraction of the total line length
 		t = (-plane_d - ad) / (bd - ad);
+
+		// Calculate the vector from the line start point to the line end point
 		vec3d lineStartToEnd = Vector_Sub(lineEnd, lineStart);
+
+		// Calculate the vector from the line start point to the intersection point
 		vec3d lineToIntersect = Vector_Mul(lineStartToEnd, t);
+
+		// Calculate the intersection point
 		return Vector_Add(lineStart, lineToIntersect);
 	}
 
@@ -365,9 +385,7 @@ private:
 			outside_points[nOutsidePointCount++] = &in_tri.p[2];  outside_tex[nOutsideTexCount++] = &in_tri.t[2];
 		}
 
-		// Now classify triangle points, and break the input triangle into 
-		// smaller output triangles if required. There are four possible
-		// outcomes...
+		//  Sort the triangle points into groups, and if needed, split the input triangle into smaller output triangles. This could happen in four different ways...
 
 		if (nInsidePointCount == 0)
 		{
